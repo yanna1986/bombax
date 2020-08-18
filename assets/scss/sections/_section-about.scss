@@ -4,12 +4,16 @@
 	letter-spacing: 0.055em;
 	background-color: $color-gray-light;
 
+	h2{
+		margin-top: 0;
+	}
+
 	@include lg-min {
 		padding-top: 100px;
 		padding-bottom: 100px;
 	}
 	@include lg-md{
-		padding: 80px;
+		padding-top: 80px;
 		padding-bottom: 80px;
 	}
 	@include md{
