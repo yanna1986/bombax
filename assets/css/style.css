@@ -463,7 +463,12 @@ template {
 /* sm */
 /* xs */
 /* xx */
-.header-menu__container, .header-content_container, .about__container, .form__conteiner, .posts__container, .footer__container {
+.header-menu__container,
+ .header-content__container, 
+ .about__container, 
+ .form__conteiner,
+  .posts__container, 
+  .footer__container {
   max-width: 1340px;
   margin: auto;
   padding-right: 20px;
