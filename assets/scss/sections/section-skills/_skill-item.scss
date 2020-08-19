@@ -39,11 +39,17 @@
         margin: 0;
 
         @include abs-position;
+      
+        @include md {
+            font-size: 1.125rem;
+        }
+        @include md-min{
+            font-size: 1.25rem;
+        }
     }
 
-    &__link
-    {
-        font-size: 1.25rem;
+    &__link{
+    
 
         display: flex;
 

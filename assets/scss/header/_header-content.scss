@@ -1,14 +1,15 @@
 
-.header-content
-{
+.header-content{
     position: relative;
-
-    width: 100%;
 
     &_container
     {
-        @extend %container;
-    }
+      display: grid;}
+
+       
+      
+      @extend %container;
+    
 
     &__title
     {
@@ -34,26 +35,69 @@
         }
     }
 
-
-
     &__buttons {
-        display: flex;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
     
-        @include sm-min {
-          justify-content: center;
-        }
+       
         @include sm {
           align-items: center;
           flex-direction: column;
         }
-    
-        .btn:first-of-type {
-          @include sm-min {
-            margin-right: $gap;
+        .btn{
+          @include lg-md{
+            min-width: 200px;
+            height: 50;
+            padding-top: 14px;
+            padding-bottom: 14px;
+            letter-spacing: 0.1em;
+            font-size: 1rem;
+            :not(:last-of-type){
+              margin-right: 20px;
+            }
           }
-          @include sm {
-            margin-bottom: $gap;
+          @include lg-min{
+            min-width: 250px;
+
+            :not(:last-of-type){
+              margin-right: 20px;
+            }
+          }
+          @include md-sm{
+            min-width: 170px;
+            height: 40px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            letter-spacing: 0.05em;
+            font-size: 1rem;
+
+            :not(:last-of-type){
+              margin-right: 20px;
+            }
+          }
+           @include sm{
+            min-width: 170px;
+            height: 40px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            letter-spacing: 0.05em;
+            font-size: 1rem;
+            
+            :not(:last-of-type){
+              margin-bottom: 20px;
+            }
+           }
+            
           }
         }
-      }
-}
+        
+          
+    }
+ 
+

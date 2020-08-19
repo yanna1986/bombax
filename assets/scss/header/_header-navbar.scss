@@ -1,12 +1,13 @@
 .header-navbar {
-    display: flex;
-    justify-content: flex-end;
+    display: grid;
+  
+
   
     &__btn {
       position: relative;
   
       width: 30px;
-      height: 22.5px;
+      height: 23px;
       margin: $gap 0;
   
       cursor: pointer;

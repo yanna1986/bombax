@@ -37,7 +37,7 @@
 		}
     }
 
-    &-item:nth-last-of-type(1){
+    &-item:nth-of-type(1){
         @include md-sm{
             grid-column: 1 / span 2;
         }

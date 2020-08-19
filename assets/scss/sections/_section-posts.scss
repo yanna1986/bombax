@@ -37,7 +37,8 @@
             grid-template-areas: "p1" "p2" "p3" "p4" "p5" "p6";
             grid-template-columns: 1fr;
         }
-    }  
+    } 
+
     &__button{
         display: -webkit-box;
         display: -ms-flexbox;
@@ -45,7 +46,13 @@
         -webkit-box-pack: center;
         -ms-flex-pack: center;
         justify-content: center;
-    }
+        .btn-accent{
+            @include sm-min{
+                min-width: 350px;
+            }
+            
+        }
+    } 
 
     &-item {
         -webkit-transition: background-color 0.5s;

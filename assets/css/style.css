@@ -463,7 +463,7 @@ template {
 /* sm */
 /* xs */
 /* xx */
-.header-menu__container, .header-content_container, .about__container, .form__conteiner, .posts__container, .footer__container {
+.header-menu__container, .header-content, .about__container, .form__conteiner, .posts__container, .footer__container {
   max-width: 1340px;
   margin: auto;
   padding-right: 20px;
@@ -510,26 +510,30 @@ input {
   outline: none;
 }
 
+.btn {
+  border-color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.btn-accent {
+  border-color: #2d3651;
+  background-color: rgba(45, 54, 81, 0.8);
+}
+
 .btn,
 .btn-accent {
   display: block;
+  height: 60px;
+  padding: 18px 20px;
+  -webkit-transition: background-color 0.5s, border-color 0.5s;
+  -o-transition: background-color 0.5s, border-color 0.5s;
   -webkit-transition: background-color 0.5s;
   -o-transition: background-color 0.5s;
   transition: background-color 0.5s;
   text-align: center;
   letter-spacing: 0.1em;
-}
-
-.btn {
-  border: 2px solid #fff;
-  background-color: rgba(255, 255, 255, 0.1);
-}
-
-.btn-accent {
-  height: 60px;
-  padding: 18px 20px;
-  border: 2px solid #2d3651;
-  background-color: rgba(45, 54, 81, 0.8);
+  border-width: 2px;
+  border-style: solid;
   font-size: 1.125rem;
 }
 
@@ -541,9 +545,10 @@ input {
 }
 
 .header {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: grid;
+  position: relative;
+  -ms-flex-line-pack: center;
+  align-content: center;
   min-height: 100vh;
   padding: 100px 0;
   background-color: #2d3651;
@@ -598,18 +603,13 @@ input {
 }
 
 .header-navbar {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+  display: grid;
 }
 
 .header-navbar__btn {
   position: relative;
   width: 30px;
-  height: 22.5px;
+  height: 23px;
   margin: 20px 0;
   cursor: pointer;
   -webkit-transition: 0.5s ease-in-out;
@@ -721,7 +721,10 @@ input {
 
 .header-content {
   position: relative;
-  width: 100%;
+}
+
+.header-content_container {
+  display: grid;
 }
 
 .header-content__title {
@@ -736,6 +739,11 @@ input {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
 }
 
 .skills__container {
@@ -748,8 +756,8 @@ input {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
 }
 
 .skill-item {
@@ -799,7 +807,6 @@ input {
 }
 
 .skill-item__link {
-  font-size: 1.25rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1151,20 +1158,15 @@ input {
 }
 
 @media (min-width: 576px) {
-  .btn-accent {
-    min-width: 350px;
-  }
-  .header-content__buttons {
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-  }
-  .header-content__buttons .btn:first-of-type {
-    margin-right: 20px;
-  }
   .skills {
     margin-bottom: 30px;
     padding: 10px;
+  }
+  .skills .btn-accent {
+    min-width: 350px;
+  }
+  .posts__button .btn-accent {
+    min-width: 350px;
   }
 }
 
@@ -1181,6 +1183,9 @@ input {
     grid-template-columns: repeat(auto-fit, minmax(50px, -webkit-max-content));
     grid-template-columns: repeat(auto-fit, minmax(50px, max-content));
   }
+  .skill-item__title {
+    font-size: 1.25rem;
+  }
 }
 
 @media (min-width: 992px) {
@@ -1191,14 +1196,14 @@ input {
     margin-bottom: 56px;
     font-size: 2.5rem;
   }
-  .btn {
-    min-width: 250px;
-    height: 60px;
-    padding: 18px 20px;
-    font-size: 1.125rem;
-  }
   .header-content__title {
     margin: 0 0 53px 0;
+  }
+  .header-content__buttons .btn {
+    min-width: 250px;
+  }
+  .header-content__buttons .btn :not(:last-of-type) {
+    margin-right: 20px;
   }
   .skills__container {
     grid-gap: 10px;
@@ -1239,13 +1244,19 @@ input {
     margin-bottom: 42px;
     font-size: 2rem;
   }
-  .btn {
-    min-width: 200px;
-    height: 50px;
-    padding: 14px 20px;
-  }
   .header-content__title {
     margin: 0 0 43px 0;
+  }
+  .header-content__buttons .btn {
+    min-width: 200px;
+    height: 50;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    letter-spacing: 0.1em;
+    font-size: 1rem;
+  }
+  .header-content__buttons .btn :not(:last-of-type) {
+    margin-right: 20px;
   }
   .skills__container {
     grid-gap: 10px;
@@ -1279,12 +1290,6 @@ input {
   h1 {
     font-size: 1.875rem;
   }
-  .btn {
-    min-width: 170px;
-    height: 40px;
-    padding: 10px 20px;
-    letter-spacing: 0.05em;
-  }
   .header-menu {
     background-color: rgba(68, 89, 110, 0.25);
   }
@@ -1298,6 +1303,9 @@ input {
   }
   .header-content__title {
     margin: 0 0 33px 0;
+  }
+  .skill-item__title {
+    font-size: 1.125rem;
   }
   .about {
     padding-top: 60px;
@@ -1314,6 +1322,17 @@ input {
     margin-bottom: 36px;
     font-size: 1.5rem;
   }
+  .header-content__buttons .btn {
+    min-width: 170px;
+    height: 40px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    letter-spacing: 0.05em;
+    font-size: 1rem;
+  }
+  .header-content__buttons .btn :not(:last-of-type) {
+    margin-right: 20px;
+  }
   .skills__container {
     grid-gap: 10px;
     grid-template-areas: 'a1 a2' 'a3 a2' 'a4 a4' 'a5 a6' 'a5 a7' 'a8 a9';
@@ -1328,7 +1347,7 @@ input {
   .form__conteiner {
     grid-template-columns: 1fr 1fr;
   }
-  .form-item:nth-last-of-type(1) {
+  .form-item:nth-of-type(1) {
     grid-column: 1 / span 2;
   }
   .posts__grid {
@@ -1343,9 +1362,6 @@ input {
     text-align: center;
     font-size: 1.5rem;
   }
-  .btn-accent {
-    width: 100%;
-  }
   .header-content__buttons {
     -webkit-box-align: center;
         -ms-flex-align: center;
@@ -1355,7 +1371,15 @@ input {
         -ms-flex-direction: column;
             flex-direction: column;
   }
-  .header-content__buttons .btn:first-of-type {
+  .header-content__buttons .btn {
+    min-width: 170px;
+    height: 40px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    letter-spacing: 0.05em;
+    font-size: 1rem;
+  }
+  .header-content__buttons .btn :not(:last-of-type) {
     margin-bottom: 20px;
   }
   .skills {
