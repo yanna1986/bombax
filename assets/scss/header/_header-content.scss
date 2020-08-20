@@ -1,103 +1,65 @@
 
-.header-content{
-    position: relative;
+.header-content {
+  position: relative;
 
-    &_container
-    {
-      display: grid;}
+  width: 100%;
 
-       
-      
-      @extend %container;
-    
+  &__container {
+    @extend %container;
+  }
 
-    &__title
-    {
-        font-weight: 300;
-        line-height: 1.2;
+  &__title {
+    text-align: center;
+    letter-spacing: 0.08em;
 
-        text-align: center;
-        letter-spacing: .08em;
+    color: $color-light;
 
-        color: $color-light;
+    font-weight: 300;
+    line-height: 1.2;
 
-        @include lg-min
-        {
-            margin: 0 0 53px 0;
-        }
-        @include lg-md
-        {
-            margin: 0 0 43px 0;
-        }
-        @include md
-        {
-            margin: 0 0 33px 0;
-        }
+    @include lg-min {
+      margin: 0 0 53px 0;
+    }
+    @include lg-md {
+      margin: 0 0 43px 0;
+    }
+    @include md {
+      margin: 0 0 33px 0;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+
+    @include sm-min {
+      justify-content: center;
+    }
+    @include sm {
+      align-items: center;
+      flex-direction: column;
+    }
+    .btn{
+      @include sm{
+        min-width: 170px;
+        height: 40;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        letter-spacing: 0.05em;
+        font-size: 1rem;
+
+      }
+      @include lg-min{
+        min-width: 250px;
+      }
     }
 
-    &__buttons {
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-        -webkit-box-pack: center;
-        -ms-flex-pack: center;
-        justify-content: center;
-    
-       
-        @include sm {
-          align-items: center;
-          flex-direction: column;
-        }
-        .btn{
-          @include lg-md{
-            min-width: 200px;
-            height: 50;
-            padding-top: 14px;
-            padding-bottom: 14px;
-            letter-spacing: 0.1em;
-            font-size: 1rem;
-            :not(:last-of-type){
-              margin-right: 20px;
-            }
-          }
-          @include lg-min{
-            min-width: 250px;
-
-            :not(:last-of-type){
-              margin-right: 20px;
-            }
-          }
-          @include md-sm{
-            min-width: 170px;
-            height: 40px;
-            padding-top: 10px;
-            padding-bottom: 10px;
-            letter-spacing: 0.05em;
-            font-size: 1rem;
-
-            :not(:last-of-type){
-              margin-right: 20px;
-            }
-          }
-           @include sm{
-            min-width: 170px;
-            height: 40px;
-            padding-top: 10px;
-            padding-bottom: 10px;
-            letter-spacing: 0.05em;
-            font-size: 1rem;
-            
-            :not(:last-of-type){
-              margin-bottom: 20px;
-            }
-           }
-            
-          }
-        }
-        
-          
+    .btn:first-of-type {
+      @include sm-min {
+        margin-right: $gap;
+      }
+      @include sm {
+        margin-bottom: $gap;
+      }
     }
- 
-
+  }
+}
