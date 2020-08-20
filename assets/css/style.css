@@ -545,8 +545,8 @@ input {
 }
 
 .header {
-  display: grid;
   position: relative;
+  display: grid;
   -ms-flex-line-pack: center;
   align-content: center;
   min-height: 100vh;
@@ -555,9 +555,6 @@ input {
   background-image: url(../img/img-header.png);
   background-position: 50% 50%;
   background-size: cover;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
 }
 
 .header-overlay {
@@ -729,6 +726,10 @@ input {
   width: 100%;
 }
 
+.header-content__container {
+  display: grid;
+}
+
 .header-content__title {
   text-align: center;
   letter-spacing: 0.08em;
@@ -741,6 +742,10 @@ input {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+      justify-content: center;
 }
 
 .skills__container {
@@ -748,18 +753,15 @@ input {
   margin-bottom: 20px;
 }
 
-.skills__button {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-}
-
 .skill-item {
   position: relative;
+  display: grid;
   overflow: hidden;
+  -webkit-box-align: center;
+  align-items: center;
+  -ms-flex-align: center;
+  padding: 20px;
+  justify-items: center;
   min-height: calc(33.333vh - 13.333px);
   background-color: #2d3651;
 }
@@ -794,8 +796,9 @@ input {
 }
 
 .skill-item__title {
-  z-index: 2;
+  z-index: 1;
   margin: 0;
+  letter-spacing: 0.1em;
   position: absolute;
   top: 0;
   right: 0;
@@ -813,7 +816,6 @@ input {
   -webkit-transition: color .5s;
   -o-transition: color .5s;
   transition: color .5s;
-  letter-spacing: .1em;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -988,7 +990,7 @@ input {
   grid-gap: 20px;
 }
 
-.posts__button {
+.posts__buttons {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1155,22 +1157,21 @@ input {
 }
 
 @media (min-width: 576px) {
-  .header-content__buttons {
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-  }
-  .header-content__buttons .btn:first-of-type {
-    margin-right: 20px;
-  }
   .skills {
-    margin-bottom: 30px;
-    padding: 10px;
+    padding: 10px 10px 40px;
+  }
+  .skills__button {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
   }
   .skills .btn-accent {
     min-width: 350px;
   }
-  .posts__button .btn-accent {
+  .posts__buttons .btn-accent {
     min-width: 350px;
   }
 }
@@ -1201,15 +1202,16 @@ input {
     margin-bottom: 56px;
     font-size: 2.5rem;
   }
-  .header-content__title {
-    margin: 0 0 53px 0;
-  }
   .header-content__buttons .btn {
     min-width: 250px;
+  }
+  .header-content__buttons .btn:not(:last-of-type) {
+    margin-right: 20px;
   }
   .skills__container {
     grid-gap: 10px;
     grid-template-areas: 'a1 a1 a2 a3' 'a4 a5 a5 a6' 'a7 a8 a9 a6';
+    grid-template-columns: repeat(4, 1fr);
   }
   .about {
     padding-top: 100px;
@@ -1238,6 +1240,12 @@ input {
   }
 }
 
+@media (max-width: 991.8px) {
+  .header-content__title {
+    margin: 0 0 43px 0;
+  }
+}
+
 @media (max-width: 991.8px) and (min-width: 768px) {
   h1 {
     font-size: 2.5rem;
@@ -1246,12 +1254,21 @@ input {
     margin-bottom: 42px;
     font-size: 2rem;
   }
-  .header-content__title {
-    margin: 0 0 43px 0;
+  .header-content__buttons .btn {
+    min-width: 200px;
+    height: 50px;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    letter-spacing: 0.1em;
+    font-size: 1rem;
+  }
+  .header-content__buttons .btn:not(:last-of-type) {
+    margin-right: 20px;
   }
   .skills__container {
     grid-gap: 10px;
     grid-template-areas: 'a1 a1 a2' 'a3 a4 a4' 'a5 a5 a6' 'a7 a8 a6' 'a7 a9 a9';
+    grid-template-columns: repeat(3, 1fr);
   }
   .about {
     padding-top: 80px;
@@ -1292,9 +1309,6 @@ input {
     text-align: right;
     background-color: rgba(68, 89, 110, 0.9);
   }
-  .header-content__title {
-    margin: 0 0 33px 0;
-  }
   .skill-item__title {
     font-size: 1.125rem;
   }
@@ -1313,9 +1327,21 @@ input {
     margin-bottom: 36px;
     font-size: 1.5rem;
   }
+  .header-content__buttons .btn {
+    min-width: 170px;
+    height: 40px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    letter-spacing: 0.05em;
+    font-size: 1rem;
+  }
+  .header-content__buttons .btn:not(:last-of-type) {
+    margin-right: 20px;
+  }
   .skills__container {
     grid-gap: 10px;
     grid-template-areas: 'a1 a2' 'a3 a2' 'a4 a4' 'a5 a6' 'a5 a7' 'a8 a9';
+    grid-template-columns: 1fr 1fr;
   }
   .about__container {
     grid-gap: 20px;
@@ -1332,7 +1358,7 @@ input {
   }
   .posts__grid {
     grid-template-areas: "p1 p2" "p3 p4" "p5 p6";
-    grid-template-columns: repeat(1fr 1fr);
+    grid-template-columns: 1fr 1fr;
   }
 }
 
@@ -1344,22 +1370,22 @@ input {
   }
   .header-content__buttons {
     -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    align-items: center;
+    -ms-flex-align: center;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
   }
   .header-content__buttons .btn {
     min-width: 170px;
-    height: 40;
+    height: 40px;
     padding-top: 10px;
     padding-bottom: 10px;
     letter-spacing: 0.05em;
     font-size: 1rem;
   }
-  .header-content__buttons .btn:first-of-type {
+  .header-content__buttons .btn:not(:last-of-type) {
     margin-bottom: 20px;
   }
   .skills {
@@ -1368,6 +1394,10 @@ input {
   .skills__container {
     grid-gap: 20px;
     grid-template-areas: 'a1' 'a2' 'a3' 'a4' 'a5' 'a6' 'a7' 'a8' 'a9';
+    grid-template-columns: 1fr;
+  }
+  .skills .btn-accent {
+    width: 100%;
   }
   .about__container {
     grid-gap: 20px;
@@ -1379,5 +1409,8 @@ input {
   .posts__grid {
     grid-template-areas: "p1" "p2" "p3" "p4" "p5" "p6";
     grid-template-columns: 1fr;
+  }
+  .posts__buttons .btn-accent {
+    width: 100%;
   }
 }

@@ -2,12 +2,21 @@
 .skill-item
 {
     position: relative;
+    display: grid;
 
     overflow: hidden;
+    -webkit-box-align: center;
+    align-items: center;
+    -ms-flex-align: center;
+    padding: 20px;
+    justify-items: center;
 
     min-height: calc(33.333vh - 13.333px);
 
+
     background-color: $color-primary;
+    
+    
     //TODO: не менее 200px по высоте
 
     &__image
@@ -34,9 +43,10 @@
 
     &__title
     {
-        z-index: 2;
+        z-index: 1;
 
         margin: 0;
+        letter-spacing: 0.1em;
 
         @include abs-position;
       
@@ -58,7 +68,7 @@
         padding: 20px;
 
         transition: color .5s;
-        letter-spacing: .1em;
+       
 
         align-items: center;
         justify-content: center;
