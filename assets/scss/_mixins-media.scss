@@ -243,4 +243,20 @@
         @content;
     }
 }
+@mixin max {
+    @media (max-height: 690px)
+{
+    @content;
+}
+    
+}
+
+@mixin min {
+    @media (min-height: 691px)
+    {
+        @content;  
+    }
+    
+}
+
 
